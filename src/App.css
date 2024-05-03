@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Roboto", sans-serif;
+}
+html {
+  background-color: #212529;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-button {
+  color: white !important;
+}
+.nav-button:hover {
+  color: rgba(147, 195, 16, 0.877) !important;
+}
+.pageContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.search-container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.video-bg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.cardBgSoft {
+  background-color: rgba(240, 248, 255, 0.448) !important;
+  min-height: 90px;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+.cardBgSoft:hover {
+  background-color: rgba(240, 248, 255, 0.761) !important;
+  box-shadow: 0px 10px 15px 9px rgba(0, 0, 0, 0.1);
+}
+.flip {
+  transform: scaleY(-1);
+  transition: transform 0.5s ease-in-out;
+}
+.flip:hover {
+  transform: rotate(360deg);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.myPosition {
+  transition: transform 0.5s ease-in-out;
+  margin-top: 150px;
+}
+
+.myPosition:hover {
+  background-color: rgba(147, 195, 16, 0.877) !important;
+  box-shadow: 0px 10px 15px 9px rgba(0, 0, 0, 0.1);
+}
+
+.myTitle {
+  font-weight: 400;
+  font-size: 70px;
+  color: white;
+  transition: transform 1s ease-in-out;
+  cursor: pointer;
+}
+.myTitle:hover {
+  color: rgb(147, 195, 16);
+}
+
+.search-form {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
