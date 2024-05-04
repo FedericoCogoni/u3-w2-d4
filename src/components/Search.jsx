@@ -3,7 +3,7 @@ import { Container, FormControl, Alert, Button, Spinner } from "react-bootstrap"
 import IndexVideo from "../assets/IndexVideo.mp4"
 import { useNavigate } from "react-router-dom"
 
-function Search() {
+function Search({ setPosition }) {
   const [inputValue, setInputValue] = useState("")
   const [alertInfo, setAlertInfo] = useState({ visible: false, text: "" })
   const [loading, setLoading] = useState(false)
@@ -41,7 +41,10 @@ function Search() {
           return
         }
         updateRecentSearches(city)
-        navigate(`/weather/${result[0].lat}/${result[0].lon}`)
+        const coordinates = `lat=${result[0].lat}&lon=${result[0].lon}`
+        setPosition(coordinates)
+        console.log(coordinates)
+        navigate(`/weather`)
       })
       .catch(error => {
         setLoading(false)
@@ -59,7 +62,9 @@ function Search() {
   const handleGeoSearch = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        navigate(`/weather/${position.coords.latitude}/${position.coords.longitude}`)
+        const coordinates = `lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+        setPosition(coordinates)
+        navigate(`/weather`)
       })
     } else {
       displayAlert("Geolocalizzazione non supportata dal browser.")
@@ -98,7 +103,7 @@ function Search() {
             ))}
           </datalist>
           <Button onClick={handleGeoSearch} variant="bg-transparent fs-2 myPosition">
-            {loading ? <Spinner animation="border" size="sm" /> : "Usa la mia posizione"}
+            Usa la mia posizione
           </Button>
         </form>
         {loading && <Spinner animation="border" />}

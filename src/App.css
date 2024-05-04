@@ -80,3 +80,18 @@ html {
   flex-direction: column;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .forecastCard .display-4 .forecastCard .display-5 .forecastCard .display-6 {
+    font-size: 1rem;
+  }
+  .responsive {
+    width: 100%;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .responsive {
+    width: 75%;
+  }
+}
