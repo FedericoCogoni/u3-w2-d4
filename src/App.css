@@ -2,9 +2,8 @@
   font-family: "Roboto", sans-serif;
 }
 html {
-  background-color: #212529;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
 .nav-button {
@@ -19,6 +18,7 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .search-container {
   position: absolute;
   top: 35%;
@@ -65,7 +65,6 @@ html {
 
 .myTitle {
   font-weight: 400;
-  font-size: 70px;
   color: white;
   transition: transform 1s ease-in-out;
   cursor: pointer;
@@ -80,18 +79,12 @@ html {
   flex-direction: column;
   align-items: center;
 }
-
 @media (max-width: 768px) {
-  .forecastCard .display-4 .forecastCard .display-5 .forecastCard .display-6 {
-    font-size: 1rem;
-  }
-  .responsive {
-    width: 100%;
-    padding-left: 2rem;
+  .forecastCard,
+  .cardBgSoft {
+    flex: 0 0 auto;
   }
 }
-@media (min-width: 768px) {
-  .responsive {
-    width: 75%;
-  }
+.cardContainer {
+  max-width: 600px;
 }

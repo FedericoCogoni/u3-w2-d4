@@ -3,9 +3,9 @@ import { Card, CardText, Col, Container, Row } from "react-bootstrap"
 import Clear from "../assets/Clear.mp4"
 import Clouds from "../assets/Clouds.mp4"
 import Rain from "../assets/Rain.mp4"
-import Fog from "../assets/Fog.mp4"
+import Mist from "../assets/Fog.mp4"
 import Snow from "../assets/Snow.mp4"
-import Thunderstorm from "../assets/Thunderstorm.mp4"
+import Drizzle from "../assets/Thunderstorm.mp4"
 import NavigationBar from "./ArrowLeft"
 
 function WeatherPage({ position }) {
@@ -27,6 +27,7 @@ function WeatherPage({ position }) {
         })
         .then(data => {
           setCurrentConditions(data)
+          console.log(data)
         })
         .catch(error => {
           console.error("Failed to fetch current weather data:", error)
@@ -69,9 +70,9 @@ function WeatherPage({ position }) {
 
   const Background = weather => {
     const videos = {
-      Thunderstorm: Thunderstorm,
+      Drizzle: Drizzle,
       Clear: Clear,
-      Fog: Fog,
+      Mist: Mist,
       Clouds: Clouds,
       Snow: Snow,
       Rain: Rain,
@@ -96,10 +97,10 @@ function WeatherPage({ position }) {
       <video key={backgroundVideo} autoPlay loop muted className="video-bg background-opacity">
         <source src={backgroundVideo} type="video/mp4" />
       </video>
-      <Container fluid className="bg-dark px-0">
+      <Container fluid className="bg-dark px-0 cardContainer">
         <NavigationBar />
         <Row className="responsive pageContainer">
-          <Col sm={6} className="d-flex justify-content-center align-items-center">
+          <Col md={6} className="d-flex justify-content-center align-items-center">
             {currentConditions && (
               <Card className="text-center border-0 mb-2 mt-2 rounded-4 forecastCard cardBgSoft">
                 <Card.Header className="display-1 border-0 text-wrap">
@@ -131,7 +132,10 @@ function WeatherPage({ position }) {
               </Card>
             )}
           </Col>
-          <Col sm={6} className="d-flex flex-column align-items-center mt-auto mb-auto">
+          <Col
+            md={6}
+            className="d-flex flex-column align-items-center mt-auto mb-auto forecastCard"
+          >
             {futureForecast &&
               futureForecast.list
                 .filter((i, index) => index % 10 === 0)
