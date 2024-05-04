@@ -9,7 +9,6 @@ import Thunderstorm from "../assets/Thunderstorm.mp4"
 import NavigationBar from "./ArrowLeft"
 
 function WeatherPage({ position }) {
-  console.log(position)
   const [currentConditions, setCurrentConditions] = useState(null)
   const [futureForecast, setFutureForecast] = useState(null)
 
@@ -19,7 +18,6 @@ function WeatherPage({ position }) {
     const urlForecast = `https://api.openweathermap.org/data/2.5/forecast?${position}&appid=${apiKey}`
 
     const fetchWeather = () => {
-      console.log(urlCurrent)
       fetch(urlCurrent)
         .then(response => {
           if (!response.ok) {
@@ -29,7 +27,6 @@ function WeatherPage({ position }) {
         })
         .then(data => {
           setCurrentConditions(data)
-          console.log(data)
         })
         .catch(error => {
           console.error("Failed to fetch current weather data:", error)
@@ -46,7 +43,6 @@ function WeatherPage({ position }) {
         })
         .then(data => {
           setFutureForecast(data)
-          console.log(data)
         })
         .catch(error => {
           console.error("Failed to fetch forecast data:", error)

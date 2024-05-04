@@ -43,7 +43,6 @@ function Search({ setPosition }) {
         updateRecentSearches(city)
         const coordinates = `lat=${result[0].lat}&lon=${result[0].lon}`
         setPosition(coordinates)
-        console.log(coordinates)
         navigate(`/weather`)
       })
       .catch(error => {

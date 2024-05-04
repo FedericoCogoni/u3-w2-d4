@@ -13,7 +13,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Search setPosition={setPosition} />} />
-          {/* <Route path="/weather/:latitude/:longitude" element={<WeatherPage />} /> */}
           <Route path="/weather" element={<WeatherPage position={position} />} />
         </Routes>
       </BrowserRouter>
